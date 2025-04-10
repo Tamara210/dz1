@@ -14,6 +14,7 @@ def find_second_min(arr):
                 second_min = num
     return second_min if second_min is not None else None
 
+# Определение функции для измерения времени выполнения другой функции
 def measure_execution_time(func, *args):
     start_time = time.perf_counter()
     result = func(*args)
