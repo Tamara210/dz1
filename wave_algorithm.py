@@ -1,6 +1,5 @@
 import time
 from get_vertices import get_vertices
-from count_vertices import count_vertices
 
 def wave_algorithm(edges, start, end):
     """Реализация волнового алгоритма."""
@@ -50,19 +49,16 @@ def wave_algorithm(edges, start, end):
         path_time = time.perf_counter() - path_start
         return None, visited, traverse_time, path_time
 
-# Код для анализа времени выполнения при 1000 итерациях
 if __name__ == "__main__":
+    # Входные данные
     edges = [(1, 2), (2, 3), (2, 4), (4, 5), (1, 6), (6, 7), (4, 5)]
     start = 1
     end = 5
 
-    total_traverse_time = 0
-    total_path_time = 0
-
-    for _ in range(1000):
-        path, visited, traverse_time, path_time = wave_algorithm(edges, start, end)
-        total_traverse_time += traverse_time
-        total_path_time += path_time
-
-    print(f"Среднее время обхода: {total_traverse_time / 1000:.6f} секунд")
-    print(f"Среднее время восстановления пути: {total_path_time / 1000:.6f} секунд")
+    # Измерение времени
+    path, visited, traverse_time, path_time = wave_algorithm(edges, start, end)
+    
+    # Вывод результатов
+    print(f"Путь от {start} до {end}: {path}")
+    print(f"Время обхода: {traverse_time:.6f} секунд")
+    print(f"Время восстановления пути: {path_time:.6f} секунд")
